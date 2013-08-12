@@ -179,8 +179,8 @@ describe 'Game of Life' do
 		let!(:sim) { Sim.new }
 		
 		context 'Any live cell with fewer than two live neighbours dies, as if caused by under-population.' do
-    		it 'should die with < 1 neighbours' do
-    			cells = [[1,1,0,0,0,0,0,0,0,0],
+    		it 'should die with < 2 neighbours' do
+    			cells = [[1,0,1,1,0,0,0,0,0,0],
 						 [0,0,0,0,0,0,0,0,0,0],
 						 [0,0,0,0,0,0,0,0,0,0],
 						 [0,0,0,0,0,0,0,0,0,0],
@@ -193,7 +193,8 @@ describe 'Game of Life' do
 				sim = Sim.new(game, cells)
 				sim.step!
 				game.board[0][0].should be_dead
-				game.board[0][1].should be_dead
+				game.board[0][2].should be_dead
+				game.board[0][3].should be_dead
     		end
     	end
     	context 'Any live cell with two or three live neighbours lives on to the next generation.' do
@@ -236,9 +237,9 @@ describe 'Game of Life' do
     	end
     	context 'Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.' do
     		it 'should re-animate with exactly 3 neighbours' do
-    			cells = [[1,1,0,0,0,0,0,0,0,0],
+    			cells = [[1,1,0,1,0,0,0,0,0,0],
 						 [1,0,0,0,0,0,0,0,0,0],
-						 [0,0,0,0,0,0,0,0,0,0],
+						 [0,0,0,1,0,1,0,0,0,0],
 						 [0,0,0,0,0,0,0,0,0,0],
 						 [0,0,0,0,0,0,0,0,0,0],
 						 [0,0,0,0,0,0,0,0,0,0],
@@ -249,6 +250,7 @@ describe 'Game of Life' do
 				sim = Sim.new(game, cells)
 				sim.step!
 				game.board[1][1].should be_living
+				game.board[1][4].should be_living
     		end
     	end
 	end

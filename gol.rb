@@ -14,50 +14,41 @@ class Game
 
 	def num_neighbours(cell)
 		neighbours = 0
-		# y, x
-		#-1,-1 NW - not at left or top
 		if cell.x > 0 && cell.y > 0
 			if self.board[cell.x - 1][cell.y - 1].living?
 				neighbours += 1
 			end
 		end
-		#-1,0 N - not at top
 		if cell.x > 0
 			if self.board[cell.x - 1][cell.y].living?
 				neighbours += 1
 			end
 		end
-		#-1,+1 NE - not at top or right
 		if cell.x > 0 && cell.y < ( cols - 1 )
 			if self.board[cell.x - 1][cell.y + 1].living?
 				neighbours += 1
 			end
 		end
-		#0,-1 W - not at left
 		if cell.y > 0
 			if self.board[cell.x][cell.y - 1].living?
 				neighbours += 1
 			end
 		end
-		#0,+1 E - not at right
 		if cell.y < ( cols - 1 )
 			if self.board[cell.x][cell.y + 1].living?
 				neighbours += 1
 			end
 		end
-		#+1,-1 SW - not at left or bottom
 		if cell.x > 0 && cell.x < ( rows - 1 )
 			if self.board[cell.x + 1][cell.y - 1].living?
 				neighbours += 1
 			end
 		end
-		#+1,0 S - not at bottom
 		if cell.x < ( rows - 1 )
 			if self.board[cell.x + 1][cell.y].living?
 				neighbours += 1
 			end
 		end
-		#+1,+1 SE - not at bottom or right
 		if cell.x < ( rows - 1 ) && cell.y < ( cols - 1 )
 			if self.board[cell.x + 1][cell.y + 1].living?
 				neighbours += 1
