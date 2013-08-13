@@ -7,15 +7,17 @@ Download all files from GitHub.
 Run bundle
 
 Testing
-	Run -
+
+Run -
 
 	rspec gol_tests.rb
 	
 	This will test all classes and methods.  RandomGame is called a few times at the end, so a few simulations will run.
     
 Playing a Random Game of Your Own
-	Run -
-	
+
+Run -
+
 	ruby gol.rb
 
 	This will create a game with 25x25 and 30% random seed with 100 steps being shown.
