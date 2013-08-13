@@ -307,8 +307,46 @@ describe 'Game of Life' do
     		end
     	end
 	end
-end
 
+	context 'Pkay' do
+		subject { Play.new }
+		
+		it 'should create a new play obj' do
+			subject.is_a?(Play).should be_true
+		end
+		it 'should be able to access sim method' do
+			subject.should respond_to(:sim)
+		end
+		it 'should be able to access steps method' do
+			subject.should respond_to(:steps)
+		end
+		it 'should be able to access go! method' do
+			subject.should respond_to(:go!)
+		end
+	end
+	context 'RandomGame' do
+		subject { RandomGame.new }
+		
+		it 'should create a new RandomGame obj' do
+			subject.is_a?(RandomGame).should be_true
+		end
+		it 'should be able to access cols method' do
+			subject.should respond_to(:cols)
+		end
+		it 'should be able to access cols method' do
+			subject.should respond_to(:rows)
+		end
+		it 'should be able to access seed method' do
+			subject.should respond_to(:seed)
+		end
+		it 'should be able to access steps method' do
+			subject.should respond_to(:steps)
+		end
+		it 'should be able to respond to choose method' do
+			subject.should respond_to(:choose)
+		end
+	end
+end
 
 
 

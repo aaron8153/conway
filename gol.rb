@@ -210,6 +210,7 @@ class RandomGame
 	end
 end
 
+#Cols, Rows, Seed (out of 100), steps to show
 randomgame = RandomGame.new(50,50,30,400)
 
 #game = Game.new(25,25)
